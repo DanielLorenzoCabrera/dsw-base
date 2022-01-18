@@ -49,4 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Obtiene un resultado
 $libro = $miConsulta->fetch();
 
+
+
+echo $blade->run("modificar",["libro" => $libro]);
+
 ?>
