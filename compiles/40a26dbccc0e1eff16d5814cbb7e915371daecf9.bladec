@@ -23,6 +23,10 @@
  </style>
 </head>
 <body>
+ <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+ <input type="text" name="busqueda">
+ <input type="submit" value="buscar" name="buscar">
+ </form>
  <p><a class="button" href="nuevo.php">Crear</a></p>
  <table>
  <tr>
@@ -32,12 +36,8 @@
  <th>¿Disponible?</th>
  <td colspan=”2”>Opciones</td>
  </tr>
- <?php $__currentLoopData = $datos; $this->addLoop($__currentLoopData);$this->getFirstLoop();
- foreach($__currentLoopData as $dato): $loop = $this->incrementLoopIndices();  ?>
- <td> <?php echo \htmlentities($dato['codigo'], ENT_QUOTES, 'UTF-8', false); ?></td>
- <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
-
- {{-- <?php foreach ($datos as $clave => $valor): ?> 
+ 
+ <?php foreach ($datos as $clave => $valor): ?> 
  <tr>
  <td><?= $valor['codigo']; ?></td>
  <td><?= $valor['titulo']; ?></td>
@@ -47,7 +47,7 @@
  <td><a class="button" href="modificar.php?codigo=<?= $valor['codigo'] ?>">Modificar</a></td>
  <td><a class="button" href="borrar.php?codigo=<?= $valor['codigo'] ?>">Borrar</a></td>
  </tr>
- <?php endforeach; ?> --}}
+ <?php endforeach; ?> 
  </table>
 </body>
 </html>

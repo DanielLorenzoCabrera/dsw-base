@@ -21,12 +21,21 @@
     exit (1); // o die (mensaje)
     }
 
-    // Prepara SELECT
-    $stmt = $dbh->prepare('SELECT * FROM libros');
-    // Ejecuta consulta
+
+    if (isset($_POST["buscar"])) {
+        var_dump($_POST);
+        $valor = "%".$_POST["busqueda"]."%";
+        $sql= "SELECT * FROM libros WHERE titulo LIKE :titulo";
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(":titulo", $valor);
+    } else {
+        $sql = 'SELECT * FROM libros';
+        $stmt = $dbh->prepare($sql);
+    }
+
     $stmt->execute();
     $datos = $stmt->fetchAll();
-
 
     echo $blade->run("leer", ["datos" => $datos]);
 
