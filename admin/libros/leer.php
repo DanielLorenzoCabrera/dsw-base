@@ -1,10 +1,11 @@
 <?php
 
-    require "vendor/autoload.php";
+    require "../../vendor/autoload.php";
     use eftec\bladeone\BladeOne;
-    $blade = new BladeOne();
+    $blade = new BladeOne("../../views", "../../cache");
 
-    require 'DB.php';
+    //require 'DB.php';
+    use Config\DB;
     /*// Parámetros de la base de datos.
     $host = '127.0.0.1';
     $port = '4306';

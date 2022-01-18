@@ -1,9 +1,13 @@
 <?php
 
-require "vendor/autoload.php";
 require "DB.php";
+
+
+
+
+require "../../vendor/autoload.php";
 use eftec\bladeone\BladeOne;
-$blade = new BladeOne();
+$blade = new BladeOne("../../views", "../../cache");
 /*
 // Variables
 $hostDB = '127.0.0.1';

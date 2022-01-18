@@ -1,5 +1,10 @@
 <?php
 
+namespace Config; // establecemos el nombre del espacio
+
+use PDO; //indicamos esto porque estamos usando el espacio PDO
+
+
 class DB {
     // Parámetros de la base de datos.
     const host='127.0.0.1';

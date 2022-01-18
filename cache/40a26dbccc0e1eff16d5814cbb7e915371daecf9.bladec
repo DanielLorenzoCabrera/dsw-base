@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <title>Leer - CRUD PHP</title>
+ <style>
+ table {
+ border-collapse: collapse;
+ width: 100%;
+ }
+ table td {
+ border: 1px solid orange;
+ text-align: center;
+ padding: 1.3rem;
+ }
+ .button {
+ border-radius: .5rem;
+ color: white;
+ background-color: orange;
+ padding: 1rem;
+ text-decoration: none;
+ }
+ </style>
+</head>
+<body>
+ <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+ <input type="text" name="busqueda">
+ <input type="submit" value="buscar" name="buscar">
+ </form>
+ <p><a class="button" href="nuevo.php">Crear</a></p>
+ <table>
+ <tr>
+ <th>Código</th>
+ <th>Título</th>
+ <th>Autor</th>
+ <th>¿Disponible?</th>
+ <td colspan=”2”>Opciones</td>
+ </tr>
+ 
+ <?php foreach ($datos as $clave => $valor): ?> 
+ <tr>
+ <td><?= $valor['codigo']; ?></td>
+ <td><?= $valor['titulo']; ?></td>
+ <td><?= $valor['autor']; ?></td>
+ <td><?= $valor['disponible'] ? 'Si' : 'No'; ?></td>
+ <!-- Se utilizará más adelante para indicar si se quiere modificar o eliminar el registro -->
+ <td><a class="button" href="modificar.php?codigo=<?= $valor['codigo'] ?>">Modificar</a></td>
+ <td><a class="button" href="borrar.php?codigo=<?= $valor['codigo'] ?>">Borrar</a></td>
+ </tr>
+ <?php endforeach; ?> 
+ </table>
+</body>
+</html>

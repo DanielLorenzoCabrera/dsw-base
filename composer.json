@@ -1,5 +1,12 @@
 {
     "require": {
         "eftec/bladeone": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Config\\": "config/"
+        }
     }
 }
+
+

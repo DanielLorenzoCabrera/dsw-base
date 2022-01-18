@@ -1,9 +1,16 @@
 <?php
 
-require "vendor/autoload.php";
 require "DB.php";
-use eftec\bladeone\BladeOne;
-$blade = new BladeOne();
+require "../../vendor/autoload.php";
+use eftec\bladeone\BladeOne; // es un import
+$blade = new BladeOne("../../views", "../../cache");
+
+/*
+    Para crear un objeto de BladeOne debemos de indicar la ruta a la vistas y al cache
+    si no indicamos las rutas buscará los directorios en el directorio actual
+
+*/ 
+
 
 $codigo = isset($_REQUEST['codigo']) ? $_REQUEST['codigo'] : null;
 $titulo = isset($_REQUEST['titulo']) ? $_REQUEST['titulo'] : null;
